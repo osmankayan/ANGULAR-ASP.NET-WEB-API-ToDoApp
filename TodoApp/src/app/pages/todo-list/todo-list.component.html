@@ -1,0 +1,30 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <h2>Yapılacaklar</h2>
+            <a routerLink="/todo-add">Yapılacak içerik ekle</a>
+            <table class="table">
+            <thead>
+                <tr>
+                    <th>Tamamlandı mı?</th>
+                    <th>Id</th>
+                    <th>İçerik</th>
+                    <th>Oluşturulma Tarihi</th>
+                    <th>İşlemler</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of todolist">
+                    <td><input class="form-check-input" type="checkbox" [checked]="item.isCompleted" (change)="isCompleted(item.id)"></td>
+                    <td>{{item.id}}</td>
+                    <td><span>{{item.content}}</span></td>
+                    <td>{{item.created | date:'short'}}</td>
+                    <td>
+                        <button class="btn btn-danger" (click)="delete(item.id)">Sil</button></td>
+                        <a class="btn btn-success mx-2" [routerLink]="['/todo-update',item.id]">Güncelle</a>
+                </tr>
+            </tbody>
+        </table>
+        </div>
+    </div>
+</div>

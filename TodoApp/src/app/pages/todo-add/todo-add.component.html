@@ -1,0 +1,14 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <h2>Yapılacak İçerik Kaydetme</h2>
+            <form [formGroup]="todoForm" (ngSubmit)="add()">
+                <div class="mb-3">
+                    <label for="">İçerik</label>
+                    <textarea class="form-control" formControlName="content" ></textarea>
+                </div>
+                <button class="btn btn-primary">Ekle</button>
+            </form>
+        </div>
+    </div>
+</div>
